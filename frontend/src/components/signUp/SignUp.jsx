@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import { config } from "../../config/api";
 import "./SignUp.css";
 
 const SignUp = () => {
@@ -20,10 +21,7 @@ const SignUp = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post(
-        "http://localhost:8082/api/auth/signup",
-        formData
-      );
+      const res = await axios.post(`${config.endpoint}/signup,`, formData);
       alert(res.data.message);
       navigate("/signin");
     } catch (err) {
