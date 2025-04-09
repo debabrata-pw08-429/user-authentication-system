@@ -14,7 +14,7 @@ const SignIn = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post(`${config.endpoint}/login,`, formData);
+      const res = await axios.post(`${config.endpoint}/login`, formData);
       alert(res.data.message);
       sessionStorage.setItem("token", res.data.token);
       navigate("/dashboard", { state: { user: res.data.user } });

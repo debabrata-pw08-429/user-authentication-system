@@ -21,7 +21,8 @@ const SignUp = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post(`${config.endpoint}/signup,`, formData);
+      console.log("Form Data:", formData); // Debugging line
+      const res = await axios.post(`${config.endpoint}/signup`, formData);
       alert(res.data.message);
       navigate("/signin");
     } catch (err) {
